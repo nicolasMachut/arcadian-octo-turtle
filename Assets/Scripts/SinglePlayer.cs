@@ -14,6 +14,7 @@ public class SinglePlayer : MonoBehaviour
     public GameObject listServerGrid;
     public GameObject player;
     public GameObject defaultButton;
+    public GameObject inputGameRoom;
 
     private int _currentExpIdx = -1;
     public GameObject[] detonatorPrefabs;
@@ -25,6 +26,8 @@ public class SinglePlayer : MonoBehaviour
     public float forceExplosion;
     public float radiusExplosion;
 
+    public string roomName {get;set;}
+
     public float durationBeforeChangeScreen;
     private float timeToChangeLvl = -10;
     // Use this for initialization
@@ -34,6 +37,11 @@ public class SinglePlayer : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    public void SetRoomName(string roomName)
+    {
+        this.roomName = roomName;
+    }
     void Update()
     {
 
@@ -85,7 +93,7 @@ public class SinglePlayer : MonoBehaviour
 
     public void CreateRoom()
     {
-       
+   
 
             Debug.Log(PhotonNetwork.connectionState);
             switch (PhotonNetwork.connectionState)
@@ -97,7 +105,7 @@ public class SinglePlayer : MonoBehaviour
                     break;
                 case ConnectionState.Connected:
                     Debug.Log("creation room");
-                    PhotonNetwork.CreateRoom("une room");
+                    PhotonNetwork.CreateRoom(this.roomName);
                     break;
                 case ConnectionState.Disconnecting:
                     break;
@@ -107,6 +115,7 @@ public class SinglePlayer : MonoBehaviour
                     break;
             }    
     }
+
 
     void OnJoinedLobby()
     {
@@ -125,6 +134,12 @@ public class SinglePlayer : MonoBehaviour
         PhotonNetwork.JoinRoom(servButton.roomName);
     }
 
+    public void SetRoomName()
+    {
+        this.menuOptionMultiplayer.active = false;
+        this.inputGameRoom.active = true;
+
+    }
  
 
     void Refresh()
@@ -185,5 +200,6 @@ public class SinglePlayer : MonoBehaviour
     {
         this.menuOptionStart.active = true;
         this.menuOptionMultiplayer.active = false;
+        this.inputGameRoom.active = false;
     }
 }
