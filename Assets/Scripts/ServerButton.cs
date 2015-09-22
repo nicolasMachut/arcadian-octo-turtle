@@ -13,6 +13,7 @@ public class ServerButton : MonoBehaviour
     public string ip;
     public string roomName;
     public SinglePlayer manager;
+    public int playerNumber;
 
     
     public void Start()
@@ -21,7 +22,7 @@ public class ServerButton : MonoBehaviour
     }
     public void Update()
     {
-        text.text = roomName;
+        text.text = roomName + " " + playerNumber + "/5"; ;
         
     }
 

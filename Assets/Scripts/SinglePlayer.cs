@@ -107,7 +107,11 @@ public class SinglePlayer : MonoBehaviour
                     break;
                 case ConnectionState.Connected:
                     Debug.Log("creation room");
-                    PhotonNetwork.CreateRoom(this.roomName);
+                    RoomOptions optionsRoom = new RoomOptions();
+                    optionsRoom.maxPlayers = 5;
+                    optionsRoom.isOpen = true;
+                    
+                    PhotonNetwork.CreateRoom(this.roomName,optionsRoom,TypedLobby.Default);
                     break;
                 case ConnectionState.Disconnecting:
                     break;
@@ -164,6 +168,7 @@ public class SinglePlayer : MonoBehaviour
             GameObject newButton = Instantiate(this.defaultButton) as GameObject;
             ServerButton button = newButton.GetComponent<ServerButton>();
             button.roomName = oneServ.name;
+            button.playerNumber = oneServ.playerCount;
             button.ip = "";
             newButton.active = true;
             newButton.name = "button" + button.roomName;
