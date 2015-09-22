@@ -26,7 +26,8 @@ public class SinglePlayer : MonoBehaviour
     public float forceExplosion;
     public float radiusExplosion;
 
-    public string roomName {get;set;}
+    public GameObject textRoomComponent;
+    public  string roomName {get;set;}
 
     public float durationBeforeChangeScreen;
     private float timeToChangeLvl = -10;
@@ -93,9 +94,10 @@ public class SinglePlayer : MonoBehaviour
 
     public void CreateRoom()
     {
-   
 
+        this.roomName = this.textRoomComponent.GetComponent<Text>().text;
             Debug.Log(PhotonNetwork.connectionState);
+            Debug.Log("room name : "+ this.roomName);
             switch (PhotonNetwork.connectionState)
             {
                 case ConnectionState.Disconnected:
