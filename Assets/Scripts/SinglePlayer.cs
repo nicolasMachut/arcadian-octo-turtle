@@ -123,16 +123,22 @@ public class SinglePlayer : MonoBehaviour
     {
        
     }
+
+    public void OnCreatedRoom()
+    {
+        Debug.Log("on created room");
+
+    }
    public void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom");
-        AsyncOperation async = Application.LoadLevelAsync("game");
-        async.allowSceneActivation = true;
+        PhotonNetwork.LoadLevel("game");
 
     }
 
     public void joinRoom(ServerButton servButton)
     {
+        
         Debug.Log("joinRoom");
         PhotonNetwork.JoinRoom(servButton.roomName);
     }
