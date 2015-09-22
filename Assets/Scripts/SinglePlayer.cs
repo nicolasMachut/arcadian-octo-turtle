@@ -116,7 +116,7 @@ public class SinglePlayer : MonoBehaviour
     {
         Debug.Log("OnJoinedRoom");
         Application.LoadLevel("game");
-        PhotonNetwork.Instantiate("Player", player.transform.position, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }
 
     public void joinRoom(ServerButton servButton)
