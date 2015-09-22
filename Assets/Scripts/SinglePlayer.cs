@@ -110,8 +110,9 @@ public class SinglePlayer : MonoBehaviour
                     RoomOptions optionsRoom = new RoomOptions();
                     optionsRoom.maxPlayers = 5;
                     optionsRoom.isOpen = true;
-                    
+                    PhotonNetwork.autoCleanUpPlayerObjects = true;
                     PhotonNetwork.CreateRoom(this.roomName,optionsRoom,TypedLobby.Default);
+                    PhotonNetwork.autoCleanUpPlayerObjects = true;
                     break;
                 case ConnectionState.Disconnecting:
                     break;
