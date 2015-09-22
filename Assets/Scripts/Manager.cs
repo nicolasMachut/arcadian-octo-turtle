@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Manager : MonoBehaviour {
 
-    public GameObject player;
+    
 
 	// Use this for initialization
 	void Start () {
         print("instanciate");
-        PhotonNetwork.Instantiate("Player", player.transform.position, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity, 0);
     }
 	
 	// Update is called once per frame
