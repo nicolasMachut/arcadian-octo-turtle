@@ -126,8 +126,9 @@ public class SinglePlayer : MonoBehaviour
    public void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom");
-        Application.LoadLevel("game");
-        
+        AsyncOperation async = Application.LoadLevelAsync("game");
+        async.allowSceneActivation = true;
+
     }
 
     public void joinRoom(ServerButton servButton)
