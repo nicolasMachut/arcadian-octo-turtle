@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 2971a8c1aca4792448cc6cbbe5c7b73a
+timeCreated: 1442919519
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Canvas: {instanceID: 0}
+  - Cube: {instanceID: 0}
+  - currentDetonator: {fileID: 100000, guid: 743fe41c504b45d4ab03e3caadd63f12, type: 2}
+  - menuOptionStart: {instanceID: 0}
+  - menuOptionMultiplayer: {instanceID: 0}
+  - listServerGrid: {instanceID: 0}
+  - player: {fileID: 111788, guid: a0d2bfe34375d5446a98abd0c16eada5, type: 2}
+  - defaultButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
