@@ -130,6 +130,8 @@ public class SinglePlayer : MonoBehaviour
     void Refresh()
     {
         this.DeleteListServer();
+        print("Etat : " + PhotonNetwork.connectionState);
+        print("refresh");
         
         foreach(RoomInfo oneServ in PhotonNetwork.GetRoomList())
         {
