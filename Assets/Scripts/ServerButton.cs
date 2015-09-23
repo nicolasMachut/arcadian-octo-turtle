@@ -20,6 +20,7 @@ public class ServerButton : MonoBehaviour
     {
       
     }
+
     public void Update()
     {
         text.text = roomName + " " + playerNumber + "/5"; ;
@@ -30,7 +31,6 @@ public class ServerButton : MonoBehaviour
     {
         this.manager.joinRoom(this);
         //Application.LoadLevel("LogoMenu");
-        
     }
 }
 

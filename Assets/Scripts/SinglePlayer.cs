@@ -97,13 +97,14 @@ public class SinglePlayer : MonoBehaviour
 
     public void ClickMultiplayer()
     {
+
+        print("yeahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         this.Cube.GetComponent<Rigidbody>().AddTorque(0, this.speedRotation, 0);
 
         this.menuOptionStart.active = false;
         this.menuOptionMultiplayer.active = true;
         PhotonNetwork.ConnectUsingSettings("0.1");
-
-        Debug.Log(PhotonNetwork.connectionState);
+        PhotonNetwork.player.name = "Nicolas";
     }
 
     public void CreateRoom()
@@ -137,26 +138,13 @@ public class SinglePlayer : MonoBehaviour
             }    
     }
 
-
-    void OnJoinedLobby()
-    {
-        print("saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuttttttttt");
-    }
-
-    public void OnCreatedRoom()
-    {
-        Debug.Log("on created room");
-
-    }
    public void OnJoinedRoom()
     {
-        Debug.Log("OnJoinedRoom");
-        PhotonNetwork.LoadLevel("FirstScene");
+        PhotonNetwork.LoadLevel("waintingRoom");
     }
 
     public void joinRoom(ServerButton servButton)
     {
-        Debug.Log("joinRoom");
         PhotonNetwork.JoinRoom(servButton.roomName);
     }
 
@@ -176,8 +164,6 @@ public class SinglePlayer : MonoBehaviour
         
         foreach(RoomInfo oneServ in PhotonNetwork.GetRoomList())
         {
-            
-
             GameObject newButton = Instantiate(this.defaultButton) as GameObject;
             ServerButton button = newButton.GetComponent<ServerButton>();
             button.roomName = oneServ.name;
