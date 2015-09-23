@@ -137,13 +137,11 @@ public class SinglePlayer : MonoBehaviour
    public void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom");
-        PhotonNetwork.LoadLevel("game");
-
+        PhotonNetwork.LoadLevel("FirstScene");
     }
 
     public void joinRoom(ServerButton servButton)
     {
-        
         Debug.Log("joinRoom");
         PhotonNetwork.JoinRoom(servButton.roomName);
     }

@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         print("instanciate");
-        PhotonNetwork.Instantiate("Joueur", Vector3.zero, Quaternion.identity, 0);
+        PhotonNetwork.Instantiate("PlayerBoule", new Vector3(-45, 10, 0), Quaternion.identity, 0);
     }
 	
 	// Update is called once per frame
@@ -18,6 +18,6 @@ public class Manager : MonoBehaviour {
 
     public void OnLeftRoom()
     {
-        PhotonNetwork.autoCleanUpPlayerObjects = true;
+        //PhotonNetwork.autoCleanUpPlayerObjects = true;
     }
 }
