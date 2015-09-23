@@ -15,6 +15,8 @@ public class SinglePlayer : MonoBehaviour
     public GameObject player;
     public GameObject defaultButton;
     public GameObject inputGameRoom;
+    public GameObject createButton;
+    public GameObject refreshButton;
 
     private int _currentExpIdx = -1;
     public GameObject[] detonatorPrefabs;
@@ -43,6 +45,7 @@ public class SinglePlayer : MonoBehaviour
     {
         this.roomName = roomName;
     }
+
     void Update()
     {
 
@@ -50,6 +53,17 @@ public class SinglePlayer : MonoBehaviour
         if (this.timeToChangeLvl != -10)
             if (Time.time > timeToChangeLvl)
                 Application.LoadLevel("LogoMenu");
+
+        if (PhotonNetwork.insideLobby)
+        {
+            createButton.SetActive(true);
+            refreshButton.SetActive(true);
+        }
+        else
+        {
+            createButton.SetActive(false);
+            refreshButton.SetActive(false);
+        }
     }
 
     public void ClickNewGame()
@@ -126,7 +140,7 @@ public class SinglePlayer : MonoBehaviour
 
     void OnJoinedLobby()
     {
-       
+        print("saluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuttttttttt");
     }
 
     public void OnCreatedRoom()
